@@ -19,10 +19,13 @@ class BuiltinCostProvider(CostProvider):
                 cache_read_tokens=30,  # 10% of input cost for cache reads
             )
         elif name.startswith("claude-sonnet-4") or name.startswith("claude-4-sonnet"):
-            # Claude 4 Sonnet: $3.00 input, $15.00 output per 1M tokens
+            # Claude 4 Sonnet (all versions): $3.00 input, $15.00 output per 1M tokens
             return TokenUsage(input_tokens=300, output_tokens=1500, reasoning_tokens=0, cache_creation_tokens=375, cache_read_tokens=30)
+        elif name.startswith("claude-opus-4-5") or name.startswith("claude-opus-4-6"):
+            # Claude Opus 4.5 / 4.6: $5.00 input, $25.00 output per 1M tokens
+            return TokenUsage(input_tokens=500, output_tokens=2500, reasoning_tokens=0, cache_creation_tokens=625, cache_read_tokens=50)
         elif name.startswith("claude-opus-4") or name.startswith("claude-4-opus"):
-            # Claude 4 Opus: $15.00 input, $75.00 output per 1M tokens
+            # Claude Opus 4 / 4.1: $15.00 input, $75.00 output per 1M tokens
             return TokenUsage(input_tokens=1500, output_tokens=7500, reasoning_tokens=0, cache_creation_tokens=1875, cache_read_tokens=150)
 
         # OpenAI models
@@ -71,6 +74,9 @@ class BuiltinCostProvider(CostProvider):
                 )
 
         # Google Gemini models
+        elif name.startswith("gemini-2.5-flash-lite"):
+            # Gemini 2.5 Flash-Lite: $0.05 input, $0.20 output per 1M tokens
+            return TokenUsage(input_tokens=5, output_tokens=20, reasoning_tokens=0, cache_creation_tokens=6, cache_read_tokens=0)
         elif name.startswith("gemini-2.5-flash"):
             # Gemini 2.5 Flash: $0.15 input, $0.60 output per 1M tokens
             return TokenUsage(input_tokens=15, output_tokens=60, reasoning_tokens=0, cache_creation_tokens=19, cache_read_tokens=1)
