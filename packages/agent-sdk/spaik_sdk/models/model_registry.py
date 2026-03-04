@@ -19,6 +19,8 @@ class ModelRegistry:
     CLAUDE_4_5_SONNET = LLMModel(family=LLMFamilies.ANTHROPIC, name="claude-sonnet-4-5-20250929", prompt_caching=True)
     CLAUDE_4_5_HAIKU = LLMModel(family=LLMFamilies.ANTHROPIC, name="claude-haiku-4-5-20251001", prompt_caching=True)
     CLAUDE_4_5_OPUS = LLMModel(family=LLMFamilies.ANTHROPIC, name="claude-opus-4-5-20251101", prompt_caching=True)
+    CLAUDE_4_6_OPUS = LLMModel(family=LLMFamilies.ANTHROPIC, name="claude-opus-4-6", prompt_caching=True)
+    CLAUDE_4_6_SONNET = LLMModel(family=LLMFamilies.ANTHROPIC, name="claude-sonnet-4-6", prompt_caching=True)
 
     # OpenAI models
     GPT_4_1 = LLMModel(family=LLMFamilies.OPENAI, name="gpt-4.1", reasoning=False, prompt_caching=True)
@@ -28,35 +30,38 @@ class ModelRegistry:
     GPT_4O_MINI = LLMModel(family=LLMFamilies.OPENAI, name="gpt-4o-mini", reasoning=False, prompt_caching=True)
     O1 = LLMModel(family=LLMFamilies.OPENAI, name="o1")
     O1_MINI = LLMModel(family=LLMFamilies.OPENAI, name="o1-mini")
+    O1_PRO = LLMModel(family=LLMFamilies.OPENAI, name="o1-pro")
     O3 = LLMModel(family=LLMFamilies.OPENAI, name="o3")
     O3_MINI = LLMModel(family=LLMFamilies.OPENAI, name="o3-mini")
     O3_PRO = LLMModel(family=LLMFamilies.OPENAI, name="o3-pro")
     O4_MINI = LLMModel(family=LLMFamilies.OPENAI, name="o4-mini")
     O4_MINI_APRIL_2025 = LLMModel(family=LLMFamilies.OPENAI, name="o4-mini-2025-04-16")
-    CODEX_MINI = LLMModel(family=LLMFamilies.OPENAI, name="codex-mini")
     GPT_5 = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5", reasoning=True, reasoning_min_effort="minimal", prompt_caching=True)
     GPT_5_MINI = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5-mini", reasoning=True, reasoning_min_effort="minimal", prompt_caching=True)
     GPT_5_NANO = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5-nano", reasoning=True, reasoning_min_effort="minimal", prompt_caching=True)
-    GPT_5_CHAT = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5-chat", reasoning=False, prompt_caching=True)
+    GPT_5_CHAT = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5-chat-latest", reasoning=False, prompt_caching=True)
     GPT_5_CODEX = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5-codex", reasoning=True, prompt_caching=True)
     GPT_5_PRO = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5-pro", reasoning=True, prompt_caching=True)
     GPT_5_1 = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.1", reasoning=True, prompt_caching=True)
-    GPT_5_1_CHAT = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.1-chat", reasoning=True, prompt_caching=True)
+    GPT_5_1_CHAT = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.1-chat-latest", reasoning=False, prompt_caching=True)
     GPT_5_1_CODEX = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.1-codex", reasoning=True, prompt_caching=True)
     GPT_5_1_CODEX_MINI = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.1-codex-mini", reasoning=True, prompt_caching=True)
     GPT_5_1_CODEX_MAX = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.1-codex-max", reasoning=True, prompt_caching=True)
     GPT_5_2 = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.2", reasoning=True, prompt_caching=True)
-    GPT_5_2_CHAT = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.2-chat", reasoning=False, prompt_caching=True)
+    GPT_5_2_CHAT = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.2-chat-latest", reasoning=False, prompt_caching=True)
     GPT_5_2_CODEX = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.2-codex", reasoning=True, prompt_caching=True)
     GPT_5_2_PRO = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.2-pro", reasoning=True, prompt_caching=True)
+    GPT_5_3_CODEX = LLMModel(family=LLMFamilies.OPENAI, name="gpt-5.3-codex", reasoning=True, prompt_caching=True)
 
     # Google models
     GEMINI_2_5_FLASH = LLMModel(family=LLMFamilies.GOOGLE, name="gemini-2.5-flash", prompt_caching=True)
+    GEMINI_2_5_FLASH_LITE = LLMModel(family=LLMFamilies.GOOGLE, name="gemini-2.5-flash-lite", prompt_caching=True)
     GEMINI_2_5_PRO = LLMModel(family=LLMFamilies.GOOGLE, name="gemini-2.5-pro", prompt_caching=True)
     GEMINI_2_5_FLASH_MAY_2025 = LLMModel(family=LLMFamilies.GOOGLE, name="gemini-2.5-flash", prompt_caching=True)
     GEMINI_2_5_PRO_MAY_2025 = LLMModel(family=LLMFamilies.GOOGLE, name="gemini-2.5-pro", prompt_caching=True)
     GEMINI_3_FLASH = LLMModel(family=LLMFamilies.GOOGLE, name="gemini-3-flash-preview", prompt_caching=True)
     GEMINI_3_PRO = LLMModel(family=LLMFamilies.GOOGLE, name="gemini-3-pro-preview", prompt_caching=True)
+    GEMINI_3_1_PRO = LLMModel(family=LLMFamilies.GOOGLE, name="gemini-3.1-pro-preview", prompt_caching=True)
 
     # DeepSeek models
     DEEPSEEK_V3 = LLMModel(family=LLMFamilies.DEEPSEEK, name="DeepSeek-V3-0324")
@@ -127,19 +132,25 @@ class ModelRegistry:
         """Get aliases mapping."""
         return {
             # Claude aliases
-            "sonnet": cls.CLAUDE_4_SONNET,
+            "sonnet": cls.CLAUDE_4_6_SONNET,
             "sonnet 3.7": cls.CLAUDE_3_7_SONNET,
             "sonnet 4.5": cls.CLAUDE_4_5_SONNET,
+            "sonnet 4.6": cls.CLAUDE_4_6_SONNET,
             "haiku": cls.CLAUDE_4_5_HAIKU,
             "haiku 4.5": cls.CLAUDE_4_5_HAIKU,
-            "opus": cls.CLAUDE_4_5_OPUS,
+            "opus": cls.CLAUDE_4_6_OPUS,
             "opus 4.1": cls.CLAUDE_4_1_OPUS,
             "opus 4.5": cls.CLAUDE_4_5_OPUS,
+            "opus 4.6": cls.CLAUDE_4_6_OPUS,
             "claude 4.1 opus": cls.CLAUDE_4_1_OPUS,
             "claude opus 4.1": cls.CLAUDE_4_1_OPUS,
             "claude 4.5 opus": cls.CLAUDE_4_5_OPUS,
             "claude opus 4.5": cls.CLAUDE_4_5_OPUS,
-            "claude": cls.CLAUDE_4_SONNET,
+            "claude 4.6 opus": cls.CLAUDE_4_6_OPUS,
+            "claude opus 4.6": cls.CLAUDE_4_6_OPUS,
+            "claude 4.6 sonnet": cls.CLAUDE_4_6_SONNET,
+            "claude sonnet 4.6": cls.CLAUDE_4_6_SONNET,
+            "claude": cls.CLAUDE_4_6_SONNET,
             "claude 3.7 sonnet": cls.CLAUDE_3_7_SONNET,
             "claude 4 sonnet": cls.CLAUDE_4_SONNET,
             "claude 4.5 sonnet": cls.CLAUDE_4_5_SONNET,
@@ -148,12 +159,12 @@ class ModelRegistry:
             # OpenAI aliases
             "o1": cls.O1,
             "o1 mini": cls.O1_MINI,
+            "o1 pro": cls.O1_PRO,
             "o3": cls.O3,
             "o3 mini": cls.O3_MINI,
             "o3 pro": cls.O3_PRO,
             "o4 mini": cls.O4_MINI,
             "o4 mini 2025-04-16": cls.O4_MINI_APRIL_2025,
-            "codex mini": cls.CODEX_MINI,
             "gpt 4.1": cls.GPT_4_1,
             "gpt 4.1 mini": cls.GPT_4_1_MINI,
             "gpt 4.1 nano": cls.GPT_4_1_NANO,
@@ -174,13 +185,17 @@ class ModelRegistry:
             "gpt 5.2 chat": cls.GPT_5_2_CHAT,
             "gpt 5.2 codex": cls.GPT_5_2_CODEX,
             "gpt 5.2 pro": cls.GPT_5_2_PRO,
+            "gpt 5.3 codex": cls.GPT_5_3_CODEX,
             # Gemini aliases
             "gemini 2.5 flash": cls.GEMINI_2_5_FLASH,
+            "gemini 2.5 flash lite": cls.GEMINI_2_5_FLASH_LITE,
             "gemini 2.5 pro": cls.GEMINI_2_5_PRO,
             "gemini 3 flash": cls.GEMINI_3_FLASH,
             "gemini 3.0 flash": cls.GEMINI_3_FLASH,
             "gemini 3 pro": cls.GEMINI_3_PRO,
             "gemini 3.0 pro": cls.GEMINI_3_PRO,
+            "gemini 3.1 pro": cls.GEMINI_3_1_PRO,
+            "gemini 3.1 pro preview": cls.GEMINI_3_1_PRO,
             # DeepSeek aliases
             "deepseek": cls.DEEPSEEK_V3_2,
             "deepseek v3": cls.DEEPSEEK_V3,
