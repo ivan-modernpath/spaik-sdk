@@ -20,7 +20,25 @@ class OllamaProvider(BaseProvider):
 
     def get_model_config(self, config: LLMConfig) -> Dict[str, Any]:
         if env_config.is_proxy_mode():
-            return self._get_proxy_config("api_key", "base_url", "headers")
+            result: Dict[str, Any] = {}
+
+            base_url = env_config.get_proxy_base_url()
+            if base_url:
+                result["base_url"] = base_url
+
+            headers: Dict[str, str] = {}
+            api_key = env_config.get_proxy_api_key()
+            if api_key:
+                headers["Authorization"] = f"Bearer {api_key}"
+
+            proxy_headers = env_config.get_proxy_headers()
+            if proxy_headers:
+                headers.update(proxy_headers)
+
+            if headers:
+                result["client_kwargs"] = {"headers": headers}
+
+            return result
 
         return {"base_url": credentials_provider.get_key("OLLAMA_BASE_URL", "http://localhost:11434")}
 

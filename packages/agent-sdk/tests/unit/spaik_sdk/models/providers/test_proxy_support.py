@@ -254,9 +254,14 @@ class TestOllamaProviderProxy:
         provider = OllamaProvider()
         result = provider.get_model_config(_make_config("ollama", "llama3:8b"))
 
-        assert result["api_key"] == "sk-proxy-key"
         assert result["base_url"] == "https://proxy.example.com/v1"
-        assert result["headers"] == {"X-Tenant": "abc", "X-Region": "us"}
+        assert result["client_kwargs"] == {
+            "headers": {
+                "Authorization": "Bearer sk-proxy-key",
+                "X-Tenant": "abc",
+                "X-Region": "us",
+            }
+        }
 
     @patch("spaik_sdk.models.providers.ollama_provider.credentials_provider")
     def test_direct_mode_uses_ollama_base_url(self, mock_creds, monkeypatch):
